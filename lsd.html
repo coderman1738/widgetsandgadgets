@@ -1,0 +1,93 @@
+<style>
+  body {
+    font-size: 20px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-decoration: underline;
+  }
+
+  #favFoods {
+    border-color:green;
+  }
+
+  .border {
+    border-width:20px;
+    border-style:inset;
+    border-color:purple;
+    padding: 30px;
+    width:300px;
+    float:left;
+  }
+
+  /*.border ul {
+    float:right;
+  }*/
+
+
+</style>
+
+
+<body>
+<h1>My Favorites</h1>
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+
+
+<div class="border" id="favFoods">
+<marquee direction="down">
+<h2>Favorite Foods</h2>
+<ul>
+    <li>Tacos</li>
+    <li>Ramen</li>
+    <li>Pizza</li>
+</ul>
+</marquee>
+</div>
+
+
+<div class="border" id="favThings1">
+<h2>Favorite Things</h2>
+<ul>
+    <li>Thing 1</li>
+    <li>Thing 2</li>
+    <li>Thing 3</li>
+</ul>
+</div>
+
+<div class="border" id="favThings2">
+<h2>Favorite Things</h2>
+<ul>
+    <li>Thing 1</li>
+    <li>Thing 2</li>
+    <li>Thing 3</li>
+</ul>
+</div>
+</body>
+<script>
+  $('#favFoods').css("color", "orange");
+  setInterval(function(){
+    $('body').css("background-color", getRandomColor());
+    $('body').css("color", getRandomColor());
+    $('.border').css("border-color", getRandomColor());
+    $('#favFoods').css('border-color', getRandomColor());
+    $('#favThings1').css('border-color', getRandomColor());
+    $('#favThings2').css('border-color', getRandomColor());
+  }, 10);
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+</script>
