@@ -1,0 +1,38 @@
+<script>
+    function check(input) {
+        var username = input.username.value;
+        console.log(username);
+        var password = input.password.value;
+        console.log(password);
+        var rpassword = input.rpassword.value
+        console.log(rpassword);
+        if (username.length == 0) {
+            console.error("Invalid Username")
+            document.getElementById("results").textContent="Invalid Username";
+        } else {
+            if (password != rpassword) {
+                console.error("Password and Password Check do not match");
+                document.getElementById("results").textContent="Password and Password Check do not Match.";
+            } else {
+                if (password.length < 5) {
+                    console.error("Password too short!")
+                    document.getElementById("results").textContent="Password too short";
+                } else {
+                    console.log("Logging Credentials In Database...")
+                }
+            }
+        }
+    }
+</script>
+<title>Account Register</title>
+<h1>Make An Account</h1><br>
+<form id="accountForm">
+    Username:<br>
+    <input type="text" id="username"><br>
+    Password:<br>
+    <input type="password" id="password"><br><i>(5 characters or more)</i><br>
+    Repeat Password<br>
+    <input type="password" id="rpassword"><br>
+    <input type="submit" id="submit" onclick="check(this.form)"><br>
+    <span id="results"></span>
+</form>
